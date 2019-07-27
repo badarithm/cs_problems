@@ -1,5 +1,4 @@
 *.pyc
 .idea
-.mypy_cache
-__cache__
-__pycache__
+.mypy_cache_
+*/__pycache__/*
