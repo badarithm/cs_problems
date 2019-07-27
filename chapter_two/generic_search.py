@@ -6,6 +6,7 @@ from functools import total_ordering
 from heapq import heappop, heappush
 from math import sqrt
 from chapter_two.maze_location import MazeLocation
+from collections import deque
 
 T = TypeVar("T")
 
@@ -56,7 +57,7 @@ def astar(initial: T, goal_test: Callable[[T], bool], successors: Callable[[T], 
 
 class Queue(Generic[T]):
     def __init__(self) -> None:
-        self._container: Deque[T] = Deque() #his does not work
+        self._container: Deque[T] = deque() #his does not work
 
     @property
     def empty(self):
