@@ -21,7 +21,7 @@ class WeightedGraph(Generic[V], Graph[V]):
     def neighbors_for_index_with_weight(self, index: int) -> List[Tuple[V, float]]:
         distance_tuples: List[Tuple[V, float]] = []
         for edge in self.edges_for_index(index):
-            distance_tuples.append(self.vertex_at(edge.v), edge.weight)
+            distance_tuples.append((self.vertex_at(edge.v), edge.weight))
         return distance_tuples
 
     def __str__(self) -> str:
@@ -30,7 +30,8 @@ class WeightedGraph(Generic[V], Graph[V]):
             desc += f"{self.vertex_at(i)} -> {self.neighbors_for_index_with_weight(i)}\n"
         return desc
 
-if __name__ == "__main__":
+
+def call():
     city_graph2: WeightedGraph[str] = WeightedGraph(["Seattle", "San Francisco", "Los Angeles", "Riverside", "Phoenix",
                                                      "Chicago", "Boston","New York", "Atlanta", "Miami", "Dallas",
                                                      "Houston", "Detroit", "Philadelphia", "Washington"])
