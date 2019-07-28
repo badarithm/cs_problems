@@ -4,6 +4,8 @@ from chapter_four.weighted_edge import WeightedEdge
 from chapter_two.generic_search import PriorityQueue
 from enum import Enum
 
+""" Jarniks algorithm: find shortest path for a graph"""
+
 V = TypeVar('V') # Type of vertices in the graph
 WeightedPath = List[WeightedEdge]
 
@@ -68,13 +70,13 @@ def print_weighted_path(weighted_graph: WeightedGraph, weighted_path: WeightedPa
 def hyperloop_test():
     city_graph2: WeightedGraph[str] = WeightedGraph(Station.list())
 
-    city_graph2.add_edge_by_vertices("Seattle", "Chicago", 1737)
-    city_graph2.add_edge_by_vertices("Seattle", "San Francisco", 678)
-    city_graph2.add_edge_by_vertices("San Francisco", "Riverside", 386)
-    city_graph2.add_edge_by_vertices("San Francisco", "Los Angeles", 348)
-    city_graph2.add_edge_by_vertices("Los Angeles", "Riverside", 50)
-    city_graph2.add_edge_by_vertices("Los Angeles", "Phoenix", 357)
-    city_graph2.add_edge_by_vertices("Riverside", "Phoenix", 307)
+    city_graph2.add_edge_by_vertices(Station.SEATTLE, Station.CHICAGO, 1737)
+    city_graph2.add_edge_by_vertices(Station.SEATTLE, Station.SAN_FRANCISCO, 678)
+    city_graph2.add_edge_by_vertices(Station.SAN_FRANCISCO, Station.RIVERSIDE, 386)
+    city_graph2.add_edge_by_vertices(Station.SAN_FRANCISCO, Station.LOS_ANGELES, 348)
+    city_graph2.add_edge_by_vertices(Station.LOS_ANGELES, Station.RIVERSIDE, 50)
+    city_graph2.add_edge_by_vertices(Station.LOS_ANGELES, Station.PHOENIX, 357)
+    city_graph2.add_edge_by_vertices("Riverside", Station.PHOENIX, 307)
     city_graph2.add_edge_by_vertices("Riverside", "Chicago", 1704)
     city_graph2.add_edge_by_vertices("Phoenix", "Dallas", 887)
     city_graph2.add_edge_by_vertices("Phoenix", "Houston", 1015)
