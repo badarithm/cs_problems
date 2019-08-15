@@ -63,7 +63,7 @@ class GeneticAlgorithm(Generic[C]):
             # early exit if it bets treshhold
             if best.fitness() >= self._threshold:
                 return best
-            print(f"Generation {generation} Best {best.fitness()} Avg {mean(map(self._population, key = self._fitness_key))}")
+            print(f"Generation {generation} Best {best.fitness()} Avg {mean(map(self._fitness_key, self._population))}")
             self.reproduce_and_replace()
             self._mutate()
             highest: C = max(self._population, key=self._fitness_key)
